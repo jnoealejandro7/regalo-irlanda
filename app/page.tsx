@@ -81,7 +81,7 @@ export default function Home() {
           </button>
 
           <p className="button-caption">
-            HECHOR CON AMOR, POR NOÉ
+            HECHO CON AMOR, POR NOÉ
           </p>
         </div>
 
