@@ -1,69 +1,179 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
+import PhotoGallery from "@/components/PhotoGallery";
+import OurTimeLine from "@/components/OurTimeLine";
 
 export default function Home() {
+  const [showMessage, setShowMessage] = useState(false);
+
+  const scrollToLetter = () => {
+    setShowMessage(true);
+
+    setTimeout(() => {
+      document.getElementById("Carta")?.scrollIntoView({
+        behavior: "smooth",
+      });
+    }, 100);
+  }
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
+    <main className="anniversary-page">
+      <div className="stars" aria-hidden="true" />
+      <div className="glow glow-one" aria-hidden="true" />
+      <div className="glow glow-two" aria-hidden="true" />
+
+      <nav className="topbar">
+        <a href="#" className="brand">
+          <span className="brand-heart">♡</span>
+          <span>NOÉ <span className="muted">&</span> IRLANDA</span>
+        </a>
+
+        <span className="nav-date">20 · 10 · 2026</span>
+      </nav>
+
+      <section className="hero">
+        <div className="hero-content">
+          <div className="eyebrow">
+            <span className="eyebrow-line" />
+            NUESTRO PRIMER ANIVERSARIO
+            <span className="eyebrow-line" />
+          </div>
+
+          <div className="floating-heart heart-one">♡</div>
+          <div className="floating-heart heart-two">♥</div>
+          <div className="floating-heart heart-three">♡</div>
+
+          <p className="small-intro">Para mi persona favorita</p>
+
+          <h1 className="hero-title">
+            <span className="name-line">Noé Alejandro</span>
+            <span className="ampersand">&</span>
+            <span className="name-line">Irlanda Marisol</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+          <div className="title-decoration">
+            <span />
+            <span className="decoratio-heart">♥</span>
+            <span />
+          </div>
+
+          <p className="hero-description">
+            Hay historias bonitas, y luego está la nuestra.
+            <br className="desktop-break" />
+            Este pequeño rincón es solo para ti.
+          </p>
+
+          <div className="anniversary-date">
+            <span>20</span>
+            <i />
+            <span>10</span>
+            <i />
+            <span>2026</span>
+          </div>
+
+          <button
+            className="gift-button"
+            onClick={scrollToLetter}
+          >
+            <span>Descubre tu regalo</span>
+            <span className="button-heart">♡</span>
+          </button>
+
+          <p className="button-caption">
+            HECHOR CON AMOR, POR NOÉ
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <button
+          className="scroll-indicator"
+          onClick={() =>
+            document.getElementById("carta")?.scrollIntoView({
+              behavior: "smooth",
+            })
+          }
+          aria-label="Desplazarse hacia bajo"
+        >
+          <span>DESLIZA PARA DESCUBRIR</span>
+          <span className="scroll-arrow">↓</span>
+        </button>
+
+        <div className="side-note side-left">
+          UNA HISTORIA · DOS CORAZONES
         </div>
-      </main>
-    </div>
+
+        <div className="side-note side-right">
+          SIEMPRE TÚ
+        </div>
+      </section>
+
+      <section className="letter-section" id="carta">
+        <div className="section-heading">
+          <p className="section-kicker">UN PEDACITO DE MI CORAZÓN</p>
+          <h2>Una carta para ti</h2>
+          <p>
+            Hay cosas que quiero decirte hoy y guardar contigo para siempre.
+          </p>
+        </div>
+
+        <div className={`letter-card ${showMessage ? "letter-open" : ""}`}>
+          <div className="letter-top-heart">♡</div>
+
+          <p className="letter-greeting">Mi querida Irlanda Marisol,</p>
+
+          <div className="letter-body">
+            <p>
+              Si estás leyendo esto, quiero que sepas que hice este pequeño lugar pensando en ti.
+            </p>
+
+            <p>
+              Gracias por formar parte de mi vida, por cada sonrisa, cada momento juntos y todas esas pequeñas cosas que hacen que estar contigo
+              sea tan especial.
+            </p>
+
+            <p>
+              Estoy tan feliz de haber pasado todo este año junto a ti, de todo lo que hemos vivido y de todo lo que nos queda
+              por vivir juntos.
+            </p>
+
+            <p>
+              Espero te guste tu regalito que le dedique un tiempo para que fuera especial y lo tuvieras para toda la vida,
+              para que recuerdes que desde el primer año juntos ya sabíamos que ibamos a estar juntos toda la vida.
+            </p>
+
+            <p>
+              Este es nuestro primer aniversario, pero espero que sea solamente el primero de muchos.
+            </p>
+
+            <p className="letter-closing">
+              Te amo muchísimo. Hoy y siempre.
+            </p>
+          </div>
+
+          <div className="letter-signature">
+            Con todo mi amor,
+            <span>Noé Alejandro ♡</span>
+          </div>
+
+          <p className="letter-footnote">
+            20 DE OCTUBRE DE 2026 · NUESTRO PRIMER AÑO
+          </p>
+        </div>
+
+        <p className="letter-bottom">
+          <span>♡</span> Un regalo hecho especialmente para ti.
+        </p>
+      </section>
+
+      <PhotoGallery />
+
+      <OurTimeLine />
+
+      <footer className="footer">
+        <span>NOÉ ALEJANDRO <span className="muted">&</span> IRLANDA MARISOL</span>
+        <span className="footer-heart">♥</span>
+        <span>20 · 10 · 2026</span>
+      </footer>
+    </main >
   );
 }
